@@ -8,7 +8,7 @@ Official code/data/model pins: no source-faithful executable pin established at 
 Compute policy: local CPU and local GPU only; no HF cpu-upgrade, Jobs, paid, or remote compute
 Former GitHub repository: https://github.com/MachineLearning-Nerd/icml26-repro-UC6YiTOeKb-preconditioned-deltanet
 Target GitHub repository: https://github.com/MachineLearning-Nerd/icml26-preconditioned-deltanet
-Current phase: documentation_and_branch_normalization
+Current phase: published_and_verified
 Per-claim state: C1 TOY_FINITE_AUDIT — exact finite PDN/PLA recurrence residuals <= 7.22e-16 with diagonal-preconditioner negative control; C2-C5 UNSTARTED
-Publication status: repository documentation in progress; no external artifact published
+Publication status: normalized GitHub repository published; no external artifact published
 Selection rationale: selected from the refreshed live eligible set after duplicate exclusions because Claim 1 gives a source-pinned exact finite linear-algebra route, feasible locally; benchmark-scale model claims remain separately audited.
