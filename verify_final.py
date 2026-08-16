@@ -15,7 +15,7 @@ EXPECTED_REPOSITORY = "MachineLearning-Nerd/icml26-preconditioned-deltanet"
 CANONICAL_NAME = "MachineLearning-Nerd"
 CANONICAL_EMAIL = "MachineLearning-Nerd@users.noreply.github.com"
 EXPECTED_BRANCHES = {"main"}
-EXPECTED_COMMIT_COUNT = 7
+EXPECTED_COMMIT_COUNT = 8
 EXPECTED_CLAIMS = {
     "C1": "TOY_FINITE_AUDIT",
     "C2": "UNSTARTED",
@@ -98,7 +98,7 @@ def remote_branches() -> set[str]:
 
 
 def verify_history() -> None:
-    records = run("git", "log", "--all", "--format=%an\x00%ae\x00%cn\x00%ce").splitlines()
+    records = run("git", "log", "--all", "--format=%an%x00%ae%x00%cn%x00%ce").splitlines()
     if not records:
         fail("no reachable commits")
     expected = f"{CANONICAL_NAME}\x00{CANONICAL_EMAIL}\x00{CANONICAL_NAME}\x00{CANONICAL_EMAIL}"
