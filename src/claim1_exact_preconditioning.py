@@ -22,11 +22,8 @@ def run_one(seed, d=6, value_dim=4, steps=30, approximate=False):
         target=C@P_direct
         max_state=max(max_state,float(np.max(np.abs(S-target))))
         max_out=max(max_out,float(np.max(np.abs(S@q-target@q))))
-        # exact Sherman--Morrison state must advance even for the approximate control,
-        # so its target remains the theorem's exact PLA side.
-        P=pnorm-np.outer(pnorm@k,pnorm@k)*0 # pnorm is already (Gprev+kkT)^-1 only with rank-one formula below
-        # Correct Sherman Morrison: (Pprev - Pprev k k^T Pprev/(1+k^T Pprev k)).
-        # reconstruct from direct inverse to avoid sharing target state with recurrence.
+        # Keep the direct inverse as the reference state so the finite audit
+        # separates recurrence arithmetic from inverse-update drift.
         P=P_direct
     return dict(seed=seed,d=d,value_dim=value_dim,steps=steps,approximate=approximate,
                 max_state_residual=max_state,max_output_residual=max_out)
@@ -40,7 +37,7 @@ def main():
     for r in exact: rows.append({**r,'kind':'exact'})
     for r in control: rows.append({**r,'kind':'diagonal_approx_control'})
     with (out/'results.csv').open('w',newline='') as f:
-        w=csv.DictWriter(f,fieldnames=list(rows[0])+['kind']); w.writeheader(); w.writerows(rows)
+        w=csv.DictWriter(f,fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
     np.savez_compressed(out/'raw_fixtures.npz', seeds=np.array(a.seeds), exact_state=np.array([r['max_state_residual'] for r in exact]), control_state=np.array([r['max_state_residual'] for r in control]))
     config={'seeds':a.seeds,'d':6,'value_dim':4,'steps':30,'dtype':'float64','source':'Theorem 3.1/Eq. atk_update; pinned claim1_method_excerpt.tex','compute':'local CPU','started_unix':started}
     (out/'config.json').write_text(json.dumps(config,indent=2)+'\n')
