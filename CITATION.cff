@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this audit or its recorded outputs, please cite the paper and this repository."
+title: "ICML 2026 Preconditioned DeltaNet Audit"
+version: "1.0.0"
+date-released: 2026-08-17
+authors:
+  - name: MachineLearning-Nerd
+repository-code: "https://github.com/MachineLearning-Nerd/icml26-preconditioned-deltanet"
+url: "https://github.com/MachineLearning-Nerd/icml26-preconditioned-deltanet"
+references:
+  - type: article
+    title: "Preconditioned DeltaNet: Curvature-aware Sequence Modeling for Linear Recurrences"
+    authors:
+      - given-names: Neehal
+        family-names: Tumma
+      - given-names: Noel
+        family-names: Loo
+      - given-names: Daniela
+        family-names: Rus
+    year: 2026
+    url: "https://arxiv.org/abs/2604.21100"
+    identifiers:
+      - type: arxiv
+        value: "2604.21100"

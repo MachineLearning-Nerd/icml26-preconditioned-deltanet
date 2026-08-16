@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "repository": "MachineLearning-Nerd/icml26-preconditioned-deltanet",
+  "previous_repository": "MachineLearning-Nerd/icml26-repro-UC6YiTOeKb-preconditioned-deltanet",
+  "overall_status": "TOY_FINITE_AUDIT_WITH_UNSTARTED_CLAIMS",
+  "paper": {
+    "title": "Preconditioned DeltaNet: Curvature-aware Sequence Modeling for Linear Recurrences",
+    "arxiv": "2604.21100",
+    "openreview": "UC6YiTOeKb",
+    "authors": ["Neehal Tumma", "Noel Loo", "Daniela Rus"]
+  },
+  "recorded_run": {
+    "producer_command": "python src/claim1_exact_preconditioning.py --out outputs/claim1_exact_preconditioning",
+    "test_command": "python -m pytest -q",
+    "python": "3.14.5",
+    "platform": "Linux-7.0.9-arch2-1-x86_64-with-glibc2.43",
+    "hardware": "local CPU",
+    "runtime_seconds": 0.038698673248291016,
+    "source": {
+      "paper_archive": "evidence/source/arxiv_source.tar.gz",
+      "paper_pdf": "evidence/source/paper.pdf",
+      "method_excerpt": "evidence/source/claim1_method_excerpt.tex",
+      "official_repository": "https://github.com/ntumm120/preconditioned-deltanet",
+      "official_commit": "7bd753279af87b39114149a104c5bde9bf67145f",
+      "vendored_official_code": false
+    }
+  },
+  "claim_statuses": {
+    "C1": "TOY_FINITE_AUDIT",
+    "C2": "UNSTARTED",
+    "C3": "UNSTARTED",
+    "C4": "UNSTARTED",
+    "C5": "UNSTARTED"
+  },
+  "content_addressed_artifacts": [
+    {"path": "outputs/claim1_exact_preconditioning/config.json", "sha256": "f9abec1314c50f27a3b6932b66af8b4e7b450fd984de005a235771013c99ebd0"},
+    {"path": "outputs/claim1_exact_preconditioning/raw_fixtures.npz", "sha256": "53017d3ca63d5ebfab1cc69ec12c3fbc87720a84cb7e6c7818127733244049d2"},
+    {"path": "outputs/claim1_exact_preconditioning/results.csv", "sha256": "0968b3317ab31f4db32070712663a42b18d39291a27fb6f7a2b8787d04377142"},
+    {"path": "outputs/claim1_exact_preconditioning/run.log", "sha256": "3fa06e0ad3872d7e286de977624455a5f9fb8c39c61b33a32d607d1e179e7916"},
+    {"path": "outputs/claim1_exact_preconditioning/summary.json", "sha256": "2f2eb939bca00d9e9823dcceabc4820ade5a05df6abbe24273fd1d192e7e8640"},
+    {"path": "evidence/source/arxiv_source.tar.gz", "sha256": "a2d0711e7eb1f7377a39c139fa49cfebd076e9ad68c7e0044ef56de1526299b7"},
+    {"path": "evidence/source/paper.pdf", "sha256": "8544f821f293706df82f29af315036b659f499ee7b9b39fb167c9f0639425739"},
+    {"path": "evidence/source/claim1_method_excerpt.tex", "sha256": "323f5bb4b6b26d3d33d1d61554bd3e8e405934f39b2de227321e3122c7cb5fc1"}
+  ],
+  "artifact_normalization": {
+    "results_csv": "Removed a duplicated kind header/value column; numeric rows and summary values were preserved."
+  },
+  "required_audit_files": [
+    "README.md",
+    "STATUS.md",
+    "REPORT.md",
+    "CLAIM_EVIDENCE.md",
+    "SOURCE_AUDIT.md",
+    "BRANCH_AUDIT.md",
+    "ENVIRONMENT.md",
+    "AUTHOR_THANK_YOU.md",
+    "CITATION.cff",
+    "claims.json",
+    "EVIDENCE_MANIFEST.json",
+    "verify_final.py"
+  ],
+  "required_evidence_paths": [
+    "CLAIM_1_PROTOCOL.md",
+    "src/claim1_exact_preconditioning.py",
+    "tests/test_claim1_exact_preconditioning.py",
+    "contract/metadata.json",
+    "contract/live_claims.json",
+    "contract/contract_manifest.json",
+    "evidence/source/SHA256SUMS",
+    "outputs/claim1_exact_preconditioning/SHA256SUMS",
+    "outputs/claim1_exact_preconditioning/config.json",
+    "outputs/claim1_exact_preconditioning/raw_fixtures.npz",
+    "outputs/claim1_exact_preconditioning/results.csv",
+    "outputs/claim1_exact_preconditioning/run.log",
+    "outputs/claim1_exact_preconditioning/summary.json"
+  ],
+  "branches": {
+    "expected_final": ["main"],
+    "legacy_prefixes_removed": [],
+    "legacy_refs_are_provenance_only": true
+  },
+  "external_evaluation_boundary": {
+    "current_score_claim": null,
+    "interpretation": "No challenge or judge score is claimed; local evidence is the authoritative audit surface."
+  },
+  "attribution": {
+    "name": "MachineLearning-Nerd",
+    "email": "MachineLearning-Nerd@users.noreply.github.com",
+    "author_and_committer_required": true,
+    "co_author_trailers_allowed": false
+  }
+}

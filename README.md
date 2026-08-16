@@ -9,9 +9,29 @@ Current scope is intentionally explicit:
 - No theorem, throughput, language-model, or synthetic-benchmark claim is marked verified by the current evidence.
 - No judge score is recorded here. The challenge contract contains five claims worth ten points; that is not a result.
 
-The repository is being normalized from its former challenge-generated name to:
+The repository has been normalized from its former challenge-generated name to:
 
     MachineLearning-Nerd/icml26-preconditioned-deltanet
+
+The published audit surface is intentionally paper-first. The detailed
+claim, source, branch, environment, and attribution records are linked below;
+[`verify_final.py`](verify_final.py) checks the same invariants in a fresh
+clone.
+
+## Audit dossier
+
+| File | Purpose |
+| --- | --- |
+| [`STATUS.md`](STATUS.md) | Current publication and per-claim status. |
+| [`CLAIM_EVIDENCE.md`](CLAIM_EVIDENCE.md) | Claim-to-producer-to-evidence map and limitations. |
+| [`SOURCE_AUDIT.md`](SOURCE_AUDIT.md) | Paper, official-code pin, and source-boundary record. |
+| [`BRANCH_AUDIT.md`](BRANCH_AUDIT.md) | Branch inventory and attribution-normalization record. |
+| [`ENVIRONMENT.md`](ENVIRONMENT.md) | Recorded environment, commands, and artifact hashes. |
+| [`REPORT.md`](REPORT.md) | Scoped audit decision and reproduction boundary. |
+| [`CITATION.cff`](CITATION.cff) | Citation metadata for this audit repository. |
+| [`AUTHOR_THANK_YOU.md`](AUTHOR_THANK_YOU.md) | Thank-you note and independence statement. |
+| [`claims.json`](claims.json) | Machine-readable claim ledger. |
+| [`EVIDENCE_MANIFEST.json`](EVIDENCE_MANIFEST.json) | Machine-readable evidence and publication manifest. |
 
 ## Paper and implementation record
 
@@ -69,6 +89,11 @@ The finite Claim 1 path is:
 
 The two tests check the exact recurrence/control behavior and the completeness of the local contract/source manifest. They do not validate the unstarted empirical claims.
 
+The saved CSV has one `kind` column and its checksum is recorded in
+`outputs/claim1_exact_preconditioning/SHA256SUMS`. The producer and its small
+schema test are kept together so future reruns cannot silently recreate the
+earlier duplicated-header artifact.
+
 ## Repository map
 
 | Path | Purpose |
@@ -84,7 +109,9 @@ The two tests check the exact recurrence/control behavior and the completeness o
 | tests/ | Small contract and Claim 1 checks. |
 | STATUS.md | Current paper, claim, and publication status. |
 | AUTONOMOUS_STATE.json | Continuation checkpoint for the next claim audit. |
-| evidence/branch-audit.md | Branch state and normalization decision. |
+| BRANCH_AUDIT.md | Final branch inventory and identity policy. |
+| SOURCE_AUDIT.md | Paper and upstream implementation provenance. |
+| verify_final.py | Dependency-free fail-closed publication verifier. |
 
 ## Reproduce the current finite audit
 
@@ -108,7 +135,11 @@ The current output was generated on local CPU. Re-running it may update timestam
 
 ## Branch policy
 
-The former repository has only main. There are no experiment branches to merge or delete. The branch audit records the three pre-normalization commits and the decision to keep one canonical public branch.
+The former repository has only `main`. There are no experiment branches to
+merge or delete, and no `orx/*` refs. The final public surface keeps one
+canonical `main` branch. All reachable commits are attributed to
+`MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>` with no
+co-author trailers; see [`BRANCH_AUDIT.md`](BRANCH_AUDIT.md).
 
 Future claim work should use one focused branch at a time, merge the final evidence into main, and record the paper/code revision, command, environment, hardware, raw output, negative controls, and limitations in the claim log.
 

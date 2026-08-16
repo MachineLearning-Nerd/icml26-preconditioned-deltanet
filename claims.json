@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "repository": "MachineLearning-Nerd/icml26-preconditioned-deltanet",
+  "previous_repository": "MachineLearning-Nerd/icml26-repro-UC6YiTOeKb-preconditioned-deltanet",
+  "overall_status": "TOY_FINITE_AUDIT_WITH_UNSTARTED_CLAIMS",
+  "paper": {
+    "title": "Preconditioned DeltaNet: Curvature-aware Sequence Modeling for Linear Recurrences",
+    "arxiv": "2604.21100",
+    "openreview": "UC6YiTOeKb",
+    "authors": ["Neehal Tumma", "Noel Loo", "Daniela Rus"]
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "paper_anchor": "Section 3.1, Theorem 3.1 and Eq. atk_update",
+      "status": "TOY_FINITE_AUDIT",
+      "producer": "src/claim1_exact_preconditioning.py::run_one",
+      "evidence": [
+        "CLAIM_1_PROTOCOL.md",
+        "evidence/source/claim1_method_excerpt.tex",
+        "outputs/claim1_exact_preconditioning/results.csv",
+        "outputs/claim1_exact_preconditioning/summary.json",
+        "outputs/claim1_exact_preconditioning/raw_fixtures.npz"
+      ],
+      "result": {
+        "seeds": [17, 29, 43, 71, 101],
+        "max_exact_state_residual": 7.216449660063518e-16,
+        "max_exact_output_residual": 2.6645352591003757e-15,
+        "min_diagonal_control_state_residual": 0.5055056483628361
+      },
+      "limitation": "Finite five-seed numerical support; not a proof for arbitrary sequences or numerical regimes."
+    },
+    {
+      "id": "C2",
+      "paper_anchor": "Section 3.3, Eq. 7 and Figure 3",
+      "status": "UNSTARTED",
+      "producer": null,
+      "evidence": [],
+      "limitation": "No chunkwise kernel or throughput evidence is present."
+    },
+    {
+      "id": "C3",
+      "paper_anchor": "340M rows of Table 1",
+      "status": "UNSTARTED",
+      "producer": null,
+      "evidence": [],
+      "limitation": "No 340M SlimPajama training or evaluation evidence is present."
+    },
+    {
+      "id": "C4",
+      "paper_anchor": "1B rows of Table 1",
+      "status": "UNSTARTED",
+      "producer": null,
+      "evidence": [],
+      "limitation": "No 1B training or evaluation evidence is present."
+    },
+    {
+      "id": "C5",
+      "paper_anchor": "Figures 5 and 6: MQAR and S-NIAH",
+      "status": "UNSTARTED",
+      "producer": null,
+      "evidence": [],
+      "limitation": "No MQAR or S-NIAH evidence is present."
+    }
+  ],
+  "attribution": {
+    "name": "MachineLearning-Nerd",
+    "email": "MachineLearning-Nerd@users.noreply.github.com",
+    "co_author_trailers_allowed": false
+  }
+}
